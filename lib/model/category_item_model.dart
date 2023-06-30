@@ -1,49 +1,55 @@
-import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 import 'package:news_app_course_route/MyTheme.dart';
 
-class CategoryShape {
+class Category {
   String id;
   String title;
   Color color;
   String imagePath;
-  CategoryShape(
+  Category(
       {required this.id,
       required this.title,
       required this.color,
       required this.imagePath});
+  /// entertainment
 
-   static List<CategoryShape> getCategory() {
+   static List<Category> getCategory() {
     return [
-      CategoryShape(
+      Category(
           id: 'sports',
           title: 'Sports',
           color: MyThemeData.redColor,
           imagePath: 'assets/images/ball.png'),
-      CategoryShape(
-          id: 'politics',
-          title: 'Politics',
+      Category(
+          id: 'technology',
+          title: 'Technology',
           color: MyThemeData.darkBlueColor,
-          imagePath: 'assets/images/Politics.png'),
-      CategoryShape(
+          imagePath: 'assets/images/computer.png'),
+      Category(
           id: 'health',
           title: 'Health',
           color: MyThemeData.pinkColor,
           imagePath: 'assets/images/health.png'),
-      CategoryShape(
+      Category(
           id: 'business',
           title: 'Business',
           color: MyThemeData.brownColor,
           imagePath: 'assets/images/bussines.png'),
-      CategoryShape(
-          id: 'environment',
-          title: 'Environment',
+      Category(
+          id: 'general',
+          title: 'General',
           color: MyThemeData.blueColor,
           imagePath: 'assets/images/environment.png'),
-      CategoryShape(
+      Category(
           id: 'science',
           title: 'Science',
           color: MyThemeData.yellowColor,
           imagePath: 'assets/images/science.png'),
+      Category(
+          id: 'entertainment',
+          title: 'Entertainment',
+          color: Colors.purple,
+          imagePath: 'assets/images/enter.png'),
     ];
   }
 }
