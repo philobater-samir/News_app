@@ -24,17 +24,19 @@ static Future<SourceResponse> getSources(String categoryId)async{
 
 }
 ///https://newsapi.org/v2/everything?q=bitcoin&apiKey=afd086c2b5164f67894a3e34094d9b98
-static Future<NewsResponse> getNews(String sourceId)async{
-  var url = Uri.https(baseUrl,'/v2/everything',{
-    "apiKey":"afd086c2b5164f67894a3e34094d9b98",
-    "sources" : sourceId
-  });
-  try {
-    var response = await http.get(url);
-    var bodyString = response.body;
-    var json = jsonDecode(bodyString);
-    var newsResponse = NewsResponse.fromJson(json);
-    return newsResponse;
+ static Future<NewsResponse> getNews(
+      {String? sourceId, String? searchKeyword}) async {
+    var url = Uri.https(baseUrl, '/v2/everything', {
+      "apiKey": "afd086c2b5164f67894a3e34094d9b98",
+      "sources": sourceId,
+      "q": searchKeyword
+    });
+    try {
+      var response = await http.get(url);
+      var bodyString = response.body;
+      var json = jsonDecode(bodyString);
+      var newsResponse = NewsResponse.fromJson(json);
+      return newsResponse;
   }catch(e){
     throw e ;
   }
