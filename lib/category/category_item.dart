@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app_course_route/model/category_item_model.dart';
 
 class categoryItem extends StatelessWidget {
-  CategoryShape category ;
+  Category category ;
   int index ;
   categoryItem({required this.category,required this.index});
 
@@ -19,15 +19,19 @@ class categoryItem extends StatelessWidget {
         )
 
       ),
-      child: Column(
-        children: [
-          Image.asset(category.imagePath),
-          Text(category.title,style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w800,
-            color: Colors.white
-          ),)
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Image.asset(category.imagePath,height: 100,),
+            SizedBox(height: 12,),
+            Text(category.title,style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w800,
+              color: Colors.white
+            ),)
+          ],
+        ),
       ),
     );
   }

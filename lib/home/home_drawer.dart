@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_course_route/MyTheme.dart';
+import 'package:news_app_course_route/category/category_widget.dart';
 import 'package:news_app_course_route/settings/settings_tab.dart';
 
 class HomeDrawer extends StatelessWidget {
+  Function onClickDrawer ;
+  static const int categories = 1 ;
+  static const int settings = 2;
+  HomeDrawer({required this.onClickDrawer});
 
   @override
   Widget build(BuildContext context) {
@@ -10,17 +15,19 @@ class HomeDrawer extends StatelessWidget {
       children:[
         Image.asset('assets/images/main_background.png',fit: BoxFit.fill,height: double.infinity,width: double.infinity,),
         Column(
+
           children: [
             Container(
               padding: EdgeInsets.symmetric(vertical: 50),
               width: double.infinity,
               color: MyThemeData.primaryColor,
-              child: Center(child: Text('News App !',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),textAlign: TextAlign.center,)),
+              child: Center(child: Text('News ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),textAlign: TextAlign.center,)),
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: InkWell(
                 onTap: (){
+                  onClickDrawer(HomeDrawer.categories);
                 },
                 child: Row(children: [
                   Icon(Icons.list,color: Colors.black,size: 40,),
@@ -34,7 +41,7 @@ class HomeDrawer extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: InkWell(
                 onTap: (){
-                  Navigator.of(context).pushNamed(settingsTab.routeName);
+                  onClickDrawer(HomeDrawer.settings);
                 },
                 child: Row(children: [Icon(Icons.settings,color: Colors.black,size: 40,),
                   SizedBox(width: 10,),
