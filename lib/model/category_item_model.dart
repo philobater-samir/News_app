@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_course_route/MyTheme.dart';
-
 class Category {
   String id;
   String title;
@@ -32,7 +31,7 @@ class Category {
           imagePath: 'assets/images/health.png'),
       Category(
           id: 'business',
-          title: 'Business',
+          title: 'business',
           color: MyThemeData.brownColor,
           imagePath: 'assets/images/bussines.png'),
       Category(

@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app_course_route/MyTheme.dart';
+import 'package:news_app_course_route/provider/app_provider.dart';
+import 'package:news_app_course_route/settings/language.dart';
+import 'package:provider/provider.dart';
 
-class settingsTab extends StatelessWidget {
+class settingsTab extends StatefulWidget {
   static const String routeName = 'settings';
 
   @override
+  State<settingsTab> createState() => _settingsTabState();
+}
+
+class _settingsTabState extends State<settingsTab> {
+  @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<appProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(
@@ -17,7 +27,9 @@ class settingsTab extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Text(
-                  'Language',
+                  provider.appLanguage == 'ar'
+                      ? AppLocalizations.of(context)!.language
+                      : AppLocalizations.of(context)!.language,
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -27,7 +39,7 @@ class settingsTab extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: showLanguageItem,
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -38,7 +50,9 @@ class settingsTab extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'English',
+                            provider.appLanguage == 'ar'
+                                ? AppLocalizations.of(context)!.arabic
+                                : AppLocalizations.of(context)!.english,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 15,
@@ -54,8 +68,16 @@ class settingsTab extends StatelessWidget {
             ],
           ),
         ],
-
       ),
     );
+  }
+
+  void showLanguageItem() {
+    showModalBottomSheet(
+        backgroundColor: MyThemeData.whiteColor,
+        context: context,
+        builder: (context) {
+          return LanguageItam();
+        });
   }
 }
