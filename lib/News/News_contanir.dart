@@ -13,15 +13,15 @@ class newsContainer extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width ;
     return FutureBuilder<NewsResponse>(
-        future:ApiManager.getNews(source.id??''),
-        builder: ((context,snapshot) {
-          if(snapshot.connectionState == ConnectionState.waiting){
+        future: ApiManager.getNews(sourceId: source.id ?? ''),
+        builder: ((context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
               child: CircularProgressIndicator(
                 color: MyThemeData.primaryColor,
               ),
             );
-          }else if(snapshot.hasError){
+          } else if (snapshot.hasError) {
             return Center(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
