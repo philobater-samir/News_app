@@ -14,7 +14,7 @@ class newsSearch extends SearchDelegate {
             onPressed: () => showResults(context),
             icon: Icon(
               Icons.search,
-              color: Colors.black,
+              color: Colors.white,
               textDirection: TextDirection.rtl,
               size: 30,
             )),
@@ -30,7 +30,7 @@ class newsSearch extends SearchDelegate {
         },
         icon: Icon(
           Icons.close,
-          color: Colors.black,
+          color: Colors.white,
           textDirection: TextDirection.rtl,
           size: 30,
         ));
@@ -57,32 +57,35 @@ class newsSearch extends SearchDelegate {
                   height: height * .1,
                   width: width * .5,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: MyThemeData.primaryColor,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Something Went wrong!',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            primary:
-                                MyThemeData.primaryColor, // Background color
-                          ),
-                          child: Text(
-                            'Reload',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w900,
-                                fontSize: 12),
-                          ))
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Something Went wrong!',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              primary:
+                                  MyThemeData.primaryColor, // Background color
+                            ),
+                            child: Text(
+                              'Reload',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 12),
+                            ))
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -161,32 +164,35 @@ class newsSearch extends SearchDelegate {
                     height: height * .1,
                     width: width * .5,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: MyThemeData.primaryColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Something Went wrong!',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              primary:
-                                  MyThemeData.primaryColor, // Background color
-                            ),
-                            child: Text(
-                              'Reload',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 12),
-                            ))
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Something Went wrong!',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                primary: MyThemeData
+                                    .primaryColor, // Background color
+                              ),
+                              child: Text(
+                                'Reload',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 12),
+                              ))
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -242,6 +248,7 @@ class newsSearch extends SearchDelegate {
   ThemeData appBarTheme(BuildContext context) {
     return ThemeData(
         appBarTheme: AppBarTheme(
+          toolbarHeight: 70,
           backgroundColor: MyThemeData.primaryColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -254,8 +261,14 @@ class newsSearch extends SearchDelegate {
           focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
           enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
         ),
-        indicatorColor: MyThemeData.whiteColor,
-        hintColor: Colors.black,
+        indicatorColor: Colors.black,
+        hintColor: Colors.white,
+        textTheme: TextTheme(
+          headline6: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+        ),
         textSelectionTheme:
             TextSelectionThemeData(selectionColor: Colors.white));
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_course_route/MyTheme.dart';
 import 'package:news_app_course_route/api_manegar.dart';
-import 'package:news_app_course_route/category/tabs_shape.dart';
 import 'package:news_app_course_route/category/tabs_sources.dart';
 import 'package:news_app_course_route/model/category_item_model.dart';
 import 'package:news_app_course_route/model/source_response.dart';
@@ -18,20 +17,19 @@ class categoryDetails extends StatelessWidget {
     return FutureBuilder<SourceResponse>(
         future:ApiManager.getSources(category?.id??'') ,
         builder: ((context,snapshot) {
-          if(snapshot.connectionState == ConnectionState.waiting){
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
               child: CircularProgressIndicator(
                 color: MyThemeData.primaryColor,
-
               ),
             );
-          }else if(snapshot.hasError){
+          } else if (snapshot.hasError) {
             return Center(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
-                  height:height*.1 ,
-                  width: width*.5,
+                  height: height * .1,
+                  width: width * .5,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
